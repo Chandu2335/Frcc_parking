@@ -1,0 +1,46 @@
+/* 4-column parking slot grid */
+.parking-slot-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.slot-grid-btn {
+  height: 38px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.slot-grid-btn.slot-btn-available {
+  background: #E8F8EE;
+  border-color: #B2E6C4;
+  color: #15803D;
+}
+
+.slot-grid-btn.slot-btn-available:hover {
+  background: #DCFCE7;
+  border-color: #86EFAC;
+}
+
+.slot-grid-btn.slot-btn-selected {
+  background: #D6A72F;
+  border-color: #D6A72F;
+  color: #0B1833;
+}
+
+.slot-grid-btn.slot-btn-booked {
+  background: #FEE2E2;
+  border-color: #FCA5A5;
+  color: #B91C1C;
+  cursor: not-allowed;
+}

@@ -1,0 +1,228 @@
+/* ==========================================================================
+   PAYMENT CONFIRM MODAL (UPI / Credit-Debit Card)
+   FRCC navy-and-gold theme. Scoped to the shared .pay-modal-* classes so no
+   other component is affected.
+   ========================================================================== */
+
+.pay-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 6, 14, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 1000;
+  animation: pay-overlay-in 0.2s ease;
+}
+
+@keyframes pay-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pay-modal-container {
+  width: 100%;
+  max-width: 400px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.5), 0 0 30px -12px rgba(214, 167, 47, 0.25);
+  overflow: hidden;
+  animation: pay-modal-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pay-modal-in {
+  0% { transform: translateY(12px) scale(0.97); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Header: dark navy with gold QR accent and white close button */
+.pay-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0B1833;
+}
+
+.pay-modal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pay-modal-title-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* UPI (QR) icon: gold background with dark navy icon */
+.pay-modal-title-icon.is-upi {
+  background: #D6A72F;
+  color: #0B1833;
+}
+
+/* Card icon stays distinct so the card variant is not repainted */
+.pay-modal-title-icon.is-card {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.pay-modal-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+
+.pay-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+.pay-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.pay-modal-body {
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Info rows: light gray with readable dark text */
+.pay-modal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #F3F4F6;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+}
+
+.pay-modal-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0B1833;
+}
+
+.pay-modal-value {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #0B1833;
+  text-align: right;
+  word-break: break-all;
+}
+
+.pay-modal-value.mono {
+  font-family: monospace;
+  letter-spacing: 0.03em;
+}
+
+/* Amount row: dark green, bold */
+.pay-modal-amount {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #15803D;
+}
+
+/* Payment confirmation question */
+.pay-modal-question {
+  font-size: 0.9rem;
+  color: #0B1833;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Frontend demonstration notice: pale yellow, gold border */
+.pay-modal-demo-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  color: #0B1833;
+  background: #FFF7E6;
+  border: 1px solid #D6A72F;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.pay-modal-demo-note svg {
+  color: #D6A72F;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.pay-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0 1.25rem 1.25rem;
+}
+
+/* Cancel: white, visible gray border, navy text */
+.pay-modal-btn-cancel {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1px solid #9CA3AF;
+  color: #0B1833;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.pay-modal-btn-cancel:hover {
+  background: #F3F4F6;
+  border-color: #0B1833;
+}
+
+/* Continue Payment: gold with dark navy text/icon */
+.pay-modal-btn-continue {
+  flex: 1.4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: #D6A72F;
+  color: #0B1833;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 4px 16px rgba(214, 167, 47, 0.35);
+  transition: all 0.2s ease;
+}
+
+.pay-modal-btn-continue:hover {
+  background: #C2921F;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(214, 167, 47, 0.45);
+}
+
+@media (max-width: 420px) {
+  .pay-modal-actions {
+    flex-direction: column-reverse;
+  }
+}
